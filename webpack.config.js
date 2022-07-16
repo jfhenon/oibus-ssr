@@ -11,10 +11,8 @@ module.exports = {
     mode: ( 'development' === process.env.NODE_ENV ? 'development' : 'production' ),
 
     // entry files
-    entry: 'development' === process.env.NODE_ENV ? [
-        './src/index.dev.js', // in development
-    ] : [
-        './src/index.prod.js', // in production
+    entry: [
+        './src/index.js',
     ],
 
     // output files and chunks
@@ -32,7 +30,7 @@ module.exports = {
                 use: [ 'babel-loader' ]
             },
             {
-                test: /\.scss$/,
+                test: /\.css$/,
                 use: [ MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader' ]
             }
         ]
@@ -68,7 +66,7 @@ module.exports = {
     resolve: {
         
         // file extensions
-        extensions: [ '.js', '.jsx', '.scss' ],
+        extensions: [ '.js', '.jsx', '.css' ],
     },
 
     // webpack optimizations
@@ -86,13 +84,6 @@ module.exports = {
             }
         }
     },
-
-    // development server configuration
-    devServer: {
-        port: 8088,
-        historyApiFallback: true,
-    },
-
     // generate source map
     devtool: 'source-map'
 

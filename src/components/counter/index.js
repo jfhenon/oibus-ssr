@@ -1,2 +1,2 @@
-import './counter.style';
+import './counter.style.css';
 export * from './counter.component';
